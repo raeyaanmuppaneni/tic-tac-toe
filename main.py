@@ -25,6 +25,14 @@ def checkForWin(player):
     else:
         return False
 
+def checkDraw():
+    for i in board.keys():
+        if board[i] == ' ':
+            return False
+
+    return True
+
+
 def player1():
     position = int(input("Which position for player x?"))
     if board[position] == ' ':
@@ -50,7 +58,6 @@ def player2():
         return True
 
 
-
 board = {1:" ", 2:" ", 3:" ",
          4:" ", 5:" ", 6:" ",
          7:" ", 8:" ", 9:" "}
@@ -60,7 +67,9 @@ show_board()
 
 while True:
     if player1():break
+    checkDraw()
     if player2():break
+    checkDraw()
         
    
     
