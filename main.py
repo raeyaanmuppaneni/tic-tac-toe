@@ -34,7 +34,23 @@ def checkDraw():
 
 
 def player1():
-    position = int(input("Which position for player x?"))
+    while True:
+
+        position = input("Which position for player x?")
+        if position.isnumeric():
+            position = int(position)
+            if position > 9 or position < 1 :
+                print("The position hs to be an integer from 1 to 9.")
+                continue
+            else:
+                break
+            
+        else:
+            print("The position has to be an integer from 1 to 9.")
+            continue
+
+       
+
     if board[position] == ' ':
         board[position] = "x"
     else:
@@ -46,16 +62,31 @@ def player1():
         return True
 
 def player2():
-    position = int(input("Which position player o?"))
-    if board[position] == ' ':
-        board[position] = "o"
-    else:
-        print("This position has already been taken.\n")
-        player2()
-    show_board()
-    if checkForWin("o"):
-        print("o is the winner.")
-        return True
+
+    while True:
+
+        position = input("Which position for player x?")
+        if position.isnumeric():
+            position = int(position)
+            if position > 9 or position < 1 :
+                print("The position has to be an integer from 1 to 9.")
+                continue
+            else:
+                break
+                
+        else:
+            print("The position has to be an integer from 1 to 9.")
+            continue
+
+        if board[position] == ' ':
+            board[position] = "o"
+        else:
+            print("This position has already been taken.\n")
+            player2()
+        show_board()
+        if checkForWin("o"):
+            print("o is the winner.")
+            return True
 
 
 board = {1:" ", 2:" ", 3:" ",
